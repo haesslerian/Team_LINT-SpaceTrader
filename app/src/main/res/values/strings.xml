@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SpaceTrader</string>
+    <string name="title_activity_set_skills">SetSkills</string>
 </resources>
