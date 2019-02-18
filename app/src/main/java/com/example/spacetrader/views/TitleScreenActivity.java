@@ -7,18 +7,16 @@ import android.view.View;
 
 import com.example.spacetrader.R;
 
-public class MainActivity extends AppCompatActivity {
+public class TitleScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Intent intent = new Intent(this, TitleScreenActivity.class);
-        startActivity(intent);
+        setContentView(R.layout.activity_title_screen);
     }
 
-    public void goToSkills(View view){
-        Intent intent = new Intent(this, SetSkillsActivity.class);
+    public void goToStartScreen(View view) {
+        Intent intent = new Intent(this, StartScreenActivity.class);
         startActivity(intent);
     }
 }
