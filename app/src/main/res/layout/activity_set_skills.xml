@@ -237,4 +237,21 @@
         app:layout_constraintTop_toBottomOf="@+id/traderSkillAdd"
         app:layout_constraintVertical_bias="0.002" />
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="goToSummary"
+        android:text="Next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/engineerSub"
+        app:layout_constraintVertical_bias="0.301" />
+
 </android.support.constraint.ConstraintLayout>

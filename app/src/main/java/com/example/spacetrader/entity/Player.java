@@ -1,21 +1,27 @@
 package com.example.spacetrader.entity;
 
 public class Player {
-    private int skillPilot, skillFighter, skillTrader, skillEngineer;
+    private int skillPilot;
+    private int skillFighter;
+    private int skillTrader;
+    private int skillEngineer;
+
+    private int credits;
     private String name;
     private Difficulty difficulty;
 
-    public Player(String name, Difficulty difficulty, int skillPilot, int skillFighter, int skillTrader, int skillEngineer) {
+    public Player(String name, Difficulty difficulty, int skillPilot, int skillFighter, int skillTrader, int skillEngineer, int credits) {
         this.name = name;
         this.difficulty = difficulty;
         this.skillPilot = skillPilot;
         this.skillFighter = skillFighter;
         this.skillTrader = skillTrader;
         this.skillEngineer = skillEngineer;
+        this.credits = credits;
     }
 
     public Player(){
-        this("DEFAULT", Difficulty.BEGINNER, 1,1,1,1);
+        this("DEFAULT", Difficulty.BEGINNER, 1,1,1,1,1000);
     }
 
     public int getSkillPilot() {
@@ -64,5 +70,13 @@ public class Player {
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public int getCredits() {
+        return credits;
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
     }
 }

@@ -16,9 +16,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, TitleScreenActivity.class);
         startActivity(intent);
     }
-
-    public void goToSkills(View view){
-        Intent intent = new Intent(this, SetSkillsActivity.class);
-        startActivity(intent);
-    }
 }

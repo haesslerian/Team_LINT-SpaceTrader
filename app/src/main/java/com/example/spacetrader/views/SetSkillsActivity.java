@@ -1,6 +1,7 @@
 package com.example.spacetrader.views;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -47,6 +48,11 @@ public class SetSkillsActivity extends AppCompatActivity {
                 updateTotal(integer);
             }
         });
+    }
+
+    public void goToSummary(View view){
+        Intent intent = new Intent(this, CreateCharacterSummaryActivity.class);
+        startActivity(intent);
     }
 
 
