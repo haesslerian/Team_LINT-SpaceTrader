@@ -22,4 +22,6 @@ public class CreateCharacterSummaryViewModel extends ViewModel {
     public LiveData<Repository> getRepository(){
         return mRepository;
     }
+
+
 }

@@ -10,7 +10,9 @@ public class Player {
     private String name;
     private Difficulty difficulty;
 
-    public Player(String name, Difficulty difficulty, int skillPilot, int skillFighter, int skillTrader, int skillEngineer, int credits) {
+    private ShipTypes shipType;
+
+    public Player(String name, Difficulty difficulty, int skillPilot, int skillFighter, int skillTrader, int skillEngineer, int credits, ShipTypes shipType) {
         this.name = name;
         this.difficulty = difficulty;
         this.skillPilot = skillPilot;
@@ -18,10 +20,11 @@ public class Player {
         this.skillTrader = skillTrader;
         this.skillEngineer = skillEngineer;
         this.credits = credits;
+        this.shipType = shipType;
     }
 
     public Player(){
-        this("DEFAULT", Difficulty.BEGINNER, 1,1,1,1,1000);
+        this("DEFAULT", Difficulty.BEGINNER, 1,1,1,1,1000, ShipTypes.GNAT);
     }
 
     public int getSkillPilot() {
@@ -78,5 +81,13 @@ public class Player {
 
     public void setCredits(int credits) {
         this.credits = credits;
+    }
+
+    public ShipTypes getShipType() {
+        return shipType;
+    }
+
+    public void setShipType(ShipTypes shipType) {
+        this.shipType = shipType;
     }
 }
