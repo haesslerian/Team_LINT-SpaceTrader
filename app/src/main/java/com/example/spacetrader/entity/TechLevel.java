@@ -9,13 +9,13 @@ public enum TechLevel {
     POST_INDUSTRIAL("Post Industrial"),
     HI_TECH("Hi-Tech");
 
-    private final String code;
-
-    TechLevel(String code) {
-        this.code = code;
+    private final String name;
+    TechLevel(String name){
+        this.name = name;
     }
 
+    @Override
     public String toString() {
-        return code;
+        return name;
     }
 }

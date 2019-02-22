@@ -1,25 +1,17 @@
 package com.example.spacetrader.entity;
 
-public enum ResourceType {
-    NOSPECIALRESOURCES ("No Special Resources"),
-    MINERALRICH ("Mineral Rich"),
-    MINERALPOOR ("Mineral Poor"),
-    DESERT ("Desert"),
-    LOTSOFWATER ("Lots of Water"),
-    RISCHSOIL ("Rich Soil"),
-    POORSOIL ("Poor Soil"),
-    RICHFAUNA ("Rich Fauna"),
-    LIFELESS ("Lifeless"),
-    WEIRDMUSHROOMS ("Weird Mushrooms"),
-    LOTSOFHERBS ("Lots of Herbs"),
-    ARTISTIC ("Artistic"),
-    WARLIKE ("Warlike");
+public enum Resources {
+    NOSPECIALRESOURCES("No Special Resources"), MINERALRICH("Mineral Rich"), MINERALPOOR("Mineral Poor"), DESERT("Desert"),
+    LOTSOFWATER("Lots of Water"), RICHSOIL("Rich Soil"), POORSOIL("Poor Soil"), RICHFAUNA("Rich Fauna"), LIFELESS("Lifeless"),
+    WEIRDMUSHROOMS("Weird Mushrooms"), LOTSOFHERBS("Lots of Herbs"), ARTISTIC("Artistic"), WARLIKE("Warlike");
 
-    private final String code;
-
-    ResourceType(String code) {
-        this.code = code;
+    private final String name;
+    Resources(String name){
+        this.name = name;
     }
 
-    public String toString() { return code; }
+    @Override
+    public String toString() {
+        return name;
+    }
 }
