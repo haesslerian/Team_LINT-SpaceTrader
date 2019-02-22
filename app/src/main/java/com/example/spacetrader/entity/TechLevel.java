@@ -10,6 +10,7 @@ public enum TechLevel {
     HI_TECH("Hi-Tech");
 
     private final String name;
+
     TechLevel(String name){
         this.name = name;
     }

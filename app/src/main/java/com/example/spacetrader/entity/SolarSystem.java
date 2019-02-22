@@ -1,14 +1,19 @@
 package com.example.spacetrader.entity;
 
+import java.util.Random;
+
 public class SolarSystem {
     private int x, y;
     private String name;
     private TechLevel techLevel;
     private Planet planet;
 
+    Random random = new Random();
+
     public SolarSystem(String name) {
         this.name = name;
-        this.planet = new Planet(name);
+        planet = new Planet(name);
+        techLevel = TechLevel.values()[random.nextInt(TechLevel.values().length)];
     }
 
     public String getName() {
@@ -16,6 +21,8 @@ public class SolarSystem {
     }
 
     public Planet getPlanet() { return planet; }
+
+    public TechLevel getTechLevel() { return techLevel; }
 
 
 }
