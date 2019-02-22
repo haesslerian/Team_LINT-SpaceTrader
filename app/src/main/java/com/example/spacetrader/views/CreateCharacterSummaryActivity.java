@@ -64,4 +64,8 @@ public class CreateCharacterSummaryActivity extends AppCompatActivity {
         homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(homeIntent);
     }
+
+    public void generateUniverse(View view){
+        mCreateCharacterSummaryViewModel.generateUniverse();
+    }
 }

@@ -26,7 +26,7 @@ public class CreateCharacterBasicInfoViewModel extends ViewModel {
 
     public void setPlayerData(String name, Difficulty difficulty){
         Repository changes = mRepository.getValue();
-        changes.getUserPlayer().setName(name);
+        changes.getUserPlayer().setName(name.trim());
         changes.getUserPlayer().setDifficulty(difficulty);
         mRepository.setValue(changes);
     }

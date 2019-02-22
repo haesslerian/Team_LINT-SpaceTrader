@@ -23,5 +23,21 @@ public class CreateCharacterSummaryViewModel extends ViewModel {
         return mRepository;
     }
 
+    public void generateUniverse(int seed){
+        Repository changes = mRepository.getValue();
+        changes.generateUniverse(seed);
+        mRepository.setValue(changes);
+    }
 
+    public void generateUniverse(){
+        Repository changes = mRepository.getValue();
+        char[] chars = changes.getUserPlayer().getName().toCharArray();
+        int sum = 0;
+        for(int i = 0; i < chars.length; i++){
+            sum += (int)chars[i];
+        }
+        sum = (sum / chars.length) * 34589;
+        changes.generateUniverse(sum);
+        mRepository.setValue(changes);
+    }
 }
