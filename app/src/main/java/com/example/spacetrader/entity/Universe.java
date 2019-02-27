@@ -22,12 +22,13 @@ public class Universe {
     private void generateUniverse(int amountPlanets, int mapSizeX, int mapSizeY){
         SolarSystemNames[] names = SolarSystemNames.values();
         TechLevel[] techlevels = TechLevel.values();
+        Resources[] resources = Resources.values();
         for(int i = 0; i < amountPlanets; i ++){
             Point planetCord = new Point(seedGenerator.nextInt(mapSizeX), seedGenerator.nextInt(mapSizeY));
             while(solarSystemHashMap.containsKey(planetCord)) {
                 planetCord = new Point(seedGenerator.nextInt(mapSizeX), seedGenerator.nextInt(mapSizeY));
             }
-            SolarSystem newSystem = new SolarSystem(planetCord, names[i].toString(), techlevels[seedGenerator.nextInt(techlevels.length)]);
+            SolarSystem newSystem = new SolarSystem(planetCord, names[i].toString(), techlevels[seedGenerator.nextInt(techlevels.length)], resources[seedGenerator.nextInt(techlevels.length)]);
             solarSystemHashMap.put(planetCord, newSystem);
         }
     }
