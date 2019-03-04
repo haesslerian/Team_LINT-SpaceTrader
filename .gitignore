@@ -2,4 +2,11 @@
 !/app
 !.gitignore
 !/README.md
+!build.gradle
+!Project_Folder.iml
+!Team_LINT-SpaceTrader.iml
+!settings.gradle
+!gradle.properties
+!gradlew
+!gradlew.bat
 *.DS_Store
