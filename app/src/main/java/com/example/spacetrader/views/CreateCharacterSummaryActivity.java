@@ -67,5 +67,7 @@ public class CreateCharacterSummaryActivity extends AppCompatActivity {
 
     public void generateUniverse(View view){
         mCreateCharacterSummaryViewModel.generateUniverse();
+        Intent nextScreen = new Intent(this, NextScreen.class);
+        startActivity(nextScreen);
     }
 }
