@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.BuyGoodsActivity">
+
+    <TableLayout
+        android:id="@+id/buySellGoods"
+        android:layout_width="397dp"
+        android:layout_height="528dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.050000012">
+
+        <TableRow
+            android:id="@+id/legend"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/resourceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Resource"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/planetAmountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="AmtP"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/planetAmountLabel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="AmtS"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/waterRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/waterLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Water"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/waterAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/waterAmountShip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/addWater"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="Buy" />
+
+            <Button
+                android:id="@+id/subWater"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="Sell" />
+
+            <TextView
+                android:id="@+id/waterPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="0 cr." />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/furRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/furLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Fur"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/furAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/furAmountShip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/addFur"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="buy" />
+
+            <Button
+                android:id="@+id/subFur"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="Sell" />
+
+            <TextView
+                android:id="@+id/furPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="0 cr." />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/foodRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/foodLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Food"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/foodAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/foodAmountShip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/addFood"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="buy" />
+
+            <Button
+                android:id="@+id/subFood"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="Sell" />
+
+            <TextView
+                android:id="@+id/foodPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="0 cr." />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/oreRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/oreLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Ore"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/oreAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/oreAmountShip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/addOre"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="buy" />
+
+            <Button
+                android:id="@+id/subOre"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="Sell" />
+
+            <TextView
+                android:id="@+id/orePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="0 cr." />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/gamesRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/gamesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Games"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/gamesAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/gamesAmountShip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/addGames"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="buy" />
+
+            <Button
+                android:id="@+id/subGames"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="Sell" />
+
+            <TextView
+                android:id="@+id/gamesPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="0 cr." />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/firearmsRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/firearmsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Firearms"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/firearmsAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/firearmsAmountShip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/addFirearms"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="buy" />
+
+            <Button
+                android:id="@+id/subFirearms"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="Sell" />
+
+            <TextView
+                android:id="@+id/firearmsPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="0 cr." />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/medicineRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/medicineLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Medicine"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/medicineAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/medicineAmountShip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/addMedicine"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="buy" />
+
+            <Button
+                android:id="@+id/subMedicine"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="Sell" />
+
+            <TextView
+                android:id="@+id/medicinePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="0 cr." />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/machinesRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/machinesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Machines"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/machinesAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/machinesAmountShip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/addMachines"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="buy" />
+
+            <Button
+                android:id="@+id/subMachines"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="Sell" />
+
+            <TextView
+                android:id="@+id/machinesPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="0 cr." />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/narcoticsRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/narcoticsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Narcotics"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/narcoticsAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/narcoticsAmountShip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/addNarcotics"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="buy" />
+
+            <Button
+                android:id="@+id/subNarcotics"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="Sell" />
+
+            <TextView
+                android:id="@+id/narcoticsPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="0 cr." />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/robotsRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/robotsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Robots"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/robotsAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/robotsAmountShip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/addRobots"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="buy" />
+
+            <Button
+                android:id="@+id/subRobots"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="Sell" />
+
+            <TextView
+                android:id="@+id/robotsPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="0 cr." />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/cargoSpaceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginBottom="8dp"
+        android:text="Cargo Capacity: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buySellGoods"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/cargoSpaceValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="0/10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/creditsLabel"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cargoSpaceLabel"
+        app:layout_constraintTop_toBottomOf="@+id/buySellGoods"
+        app:layout_constraintVertical_bias="0.379" />
+
+    <TextView
+        android:id="@+id/creditsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Total Credits:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/creditsValue"
+        app:layout_constraintTop_toBottomOf="@+id/buySellGoods"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/creditsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="8dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buySellGoods"
+        app:layout_constraintVertical_bias="0.379" />
+
+</android.support.constraint.ConstraintLayout>

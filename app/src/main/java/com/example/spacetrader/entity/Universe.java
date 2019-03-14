@@ -36,4 +36,8 @@ public class Universe {
     public List<SolarSystem> getSystemList(){
         return new LinkedList<>(solarSystemHashMap.values());
     }
+
+    public HashMap<Point, SolarSystem> getSolarSystemHashMap() {
+        return solarSystemHashMap;
+    }
 }

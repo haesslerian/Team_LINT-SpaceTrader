@@ -10,7 +10,7 @@ public class Player {
     private String name;
     private Difficulty difficulty;
 
-    private ShipTypes shipType;
+    private Ship currentShip;
 
     public Player(String name, Difficulty difficulty, int skillPilot, int skillFighter, int skillTrader, int skillEngineer, int credits, ShipTypes shipType) {
         this.name = name;
@@ -20,7 +20,7 @@ public class Player {
         this.skillTrader = skillTrader;
         this.skillEngineer = skillEngineer;
         this.credits = credits;
-        this.shipType = shipType;
+        this.currentShip = new Ship(shipType);
     }
 
     public Player(){
@@ -83,11 +83,11 @@ public class Player {
         this.credits = credits;
     }
 
-    public ShipTypes getShipType() {
-        return shipType;
+    public Ship getCurrentShip() {
+        return currentShip;
     }
 
-    public void setShipType(ShipTypes shipType) {
-        this.shipType = shipType;
+    public void setCurrentShip(Ship currentShip) {
+        this.currentShip = currentShip;
     }
 }
