@@ -55,7 +55,7 @@ public class CreateCharacterSummaryActivity extends AppCompatActivity {
         traderSkill.setText(Integer.toString(newValues.getUserPlayer().getSkillTrader()));
         engineerSkill.setText(Integer.toString(newValues.getUserPlayer().getSkillEngineer()));
         credits.setText(Integer.toString(newValues.getUserPlayer().getCredits()));
-        shipType.setText(newValues.getUserPlayer().getShipType().toString());
+        shipType.setText(newValues.getUserPlayer().getCurrentShip().getCurrentType().toString());
     }
 
     public void exitGame(View view){
@@ -67,7 +67,7 @@ public class CreateCharacterSummaryActivity extends AppCompatActivity {
 
     public void generateUniverse(View view){
         mCreateCharacterSummaryViewModel.generateUniverse();
-        Intent nextScreen = new Intent(this, NextScreen.class);
+        Intent nextScreen = new Intent(this, PlanetViewScreenActivity.class);
         startActivity(nextScreen);
     }
 }

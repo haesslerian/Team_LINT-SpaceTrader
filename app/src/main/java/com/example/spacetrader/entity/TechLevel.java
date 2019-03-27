@@ -1,17 +1,23 @@
 package com.example.spacetrader.entity;
 
 public enum TechLevel {
-    PREAGRICULTURE("Pre-Agriculture"), AGRICULTURE("Agriculture"), MEDIEVAL("Medieval"), RENAISSANCE("Renaissance"),
-    EARLYINDUSTRIAL("Early-Industrial"), INDUSTRIAL("Industrial"), POSTINDUSTRIAL("Post-Industrial"),
-    HITECH("Hi-Tech");
+    PREAGRICULTURE("Pre-Agriculture", 0), AGRICULTURE("Agriculture", 1), MEDIEVAL("Medieval", 2), RENAISSANCE("Renaissance", 3),
+    EARLYINDUSTRIAL("Early-Industrial", 4), INDUSTRIAL("Industrial", 5), POSTINDUSTRIAL("Post-Industrial", 6),
+    HITECH("Hi-Tech", 7);
 
     private final String name;
-    TechLevel(String name){
+    private final int level;
+    TechLevel(String name, int level){
         this.name = name;
+        this.level = level;
     }
 
     @Override
     public String toString() {
         return name;
+    }
+
+    public int getLevel() {
+        return level;
     }
 }
