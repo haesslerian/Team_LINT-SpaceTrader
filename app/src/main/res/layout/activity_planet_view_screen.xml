@@ -78,4 +78,17 @@
         android:text="MarketPlace"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resourceLabel" />
+
+
+    <Button
+        android:id="@+id/leavePlanet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="84dp"
+        android:onClick="goToMap"
+        android:text="Leave Planet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goToMarket" />
+
 </android.support.constraint.ConstraintLayout>

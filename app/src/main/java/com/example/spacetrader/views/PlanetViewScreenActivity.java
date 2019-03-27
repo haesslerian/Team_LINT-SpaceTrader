@@ -55,5 +55,10 @@ public class PlanetViewScreenActivity extends AppCompatActivity {
         startActivity(marketScreen);
     }
 
+    public void goToMap(View view){
+        Intent intent = new Intent(this, MapScreenActivity.class);
+        startActivity(intent);
+    }
+
 
 }
