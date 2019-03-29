@@ -16,6 +16,10 @@ public class Point  {
         return y;
     }
 
+    public int distanceFrom(Point point){
+       return (int)Math.sqrt((((point.getX() - this.x)*(point.getX() - this.x)) + ((point.getY() - this.y)*(point.getY() - this.y))));
+    }
+
     @Override
     public boolean equals(Object o){
         if(o == null){

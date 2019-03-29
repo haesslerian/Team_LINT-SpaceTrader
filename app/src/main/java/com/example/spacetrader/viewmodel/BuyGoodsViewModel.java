@@ -22,7 +22,7 @@ public class BuyGoodsViewModel extends RepositoryLinkedViewModel {
         SolarSystem currentSystem = changes.getUniverse().getSolarSystemHashMap().get(changes.getCurrentLocation());
         int amount = currentSystem.getTradeGoodAmount().get(tradeGoods);
         int price = currentSystem.getTradeGoodPrices().get(tradeGoods);
-        if(!selling && currShip.getUsedCargoSize() <= currShip.getCargoSize() && amount > 0 && price < changes.getUserPlayer().getCredits()){
+        if(!selling && currShip.getUsedCargoSize() < currShip.getCargoSize() && amount > 0 && price < changes.getUserPlayer().getCredits()){
             changes.getUserPlayer().setCredits(changes.getUserPlayer().getCredits() - price);
             currShip.addCargoAmount(tradeGoods, 1);
             currentSystem.getTradeGoodAmount().put(tradeGoods, amount - 1);

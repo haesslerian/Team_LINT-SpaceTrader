@@ -23,11 +23,15 @@ public class Universe {
         SolarSystemNames[] names = SolarSystemNames.values();
         TechLevel[] techlevels = TechLevel.values();
         Resources[] resources = Resources.values();
-        for(int i = 0; i < amountPlanets; i ++){
-            Point planetCord = new Point(seedGenerator.nextInt(mapSizeX), seedGenerator.nextInt(mapSizeY));
-            while(solarSystemHashMap.containsKey(planetCord)) {
-                planetCord = new Point(seedGenerator.nextInt(mapSizeX), seedGenerator.nextInt(mapSizeY));
-            }
+        int currentX = mapSizeX / 2;
+        int currentY = mapSizeY / 2;
+        Point initialCord = new Point(currentX, currentY);
+        SolarSystem initialSystem = new SolarSystem(initialCord, names[0].toString(), techlevels[seedGenerator.nextInt(techlevels.length)], resources[seedGenerator.nextInt(techlevels.length)]);
+        solarSystemHashMap.put(initialCord, initialSystem);
+        for(int i = 1; i < amountPlanets; i ++){
+            currentX = currentX + seedGenerator.nextInt(20) - 10;
+            currentY = currentY + seedGenerator.nextInt(20) - 10;
+            Point planetCord = new Point(currentX, currentY);
             SolarSystem newSystem = new SolarSystem(planetCord, names[i].toString(), techlevels[seedGenerator.nextInt(techlevels.length)], resources[seedGenerator.nextInt(techlevels.length)]);
             solarSystemHashMap.put(planetCord, newSystem);
         }

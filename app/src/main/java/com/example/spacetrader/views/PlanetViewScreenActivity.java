@@ -55,5 +55,10 @@ public class PlanetViewScreenActivity extends AppCompatActivity {
         startActivity(marketScreen);
     }
 
+    public void goToTravel(View view){
+        Intent travelScreen = new Intent(this, TravelScreenActivity.class);
+        startActivity(travelScreen);
+    }
+
 
 }
