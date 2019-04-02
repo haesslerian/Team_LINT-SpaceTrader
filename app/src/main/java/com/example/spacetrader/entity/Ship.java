@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 public class Ship {
     private ShipTypes currentType;
-    private int cargoSize, weaponSize, gadgetSize, fuelSize;
+    private int cargoSize, weaponSize, gadgetSize, fuelSize, currentFuel;
     private HashMap<TradeGoods, Integer> cargo;
 
     public Ship(ShipTypes type){
@@ -88,6 +88,7 @@ public class Ship {
                 break;
             }
         }
+        currentFuel = fuelSize;
     }
 
     public ShipTypes getCurrentType() {
@@ -108,6 +109,14 @@ public class Ship {
 
     public int getFuelSize() {
         return fuelSize;
+    }
+
+    public int getCurrentFuel() {
+        return currentFuel;
+    }
+
+    public void setCurrentFuel(int currentFuel) {
+        this.currentFuel = currentFuel;
     }
 
     public HashMap<TradeGoods, Integer> getCargo() {
