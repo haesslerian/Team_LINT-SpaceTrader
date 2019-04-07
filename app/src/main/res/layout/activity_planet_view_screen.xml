@@ -6,12 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".views.PlanetViewScreenActivity">
 
+    <include layout="@layout/toolbar"/>
+
     <TextView
         android:id="@+id/nameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="75dp"
         android:text="Name: "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="75dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.025"
@@ -72,7 +74,7 @@
         android:id="@+id/goToMarket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
+        android:layout_marginStart="68dp"
         android:layout_marginTop="252dp"
         android:onClick="goToMarket"
         android:text="MarketPlace"

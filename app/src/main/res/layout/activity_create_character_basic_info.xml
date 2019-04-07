@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".views.CreateCharacterBasicInfoActivity">
 
+    <include layout="@layout/toolbar"/>
+
     <EditText
         android:id="@+id/player_name_input"
         android:layout_width="228dp"

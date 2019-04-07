@@ -6,12 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".views.SetSkillsActivity">
 
+    <include layout="@layout/toolbar"/>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="8dp"
         android:text="Enter Skill Points"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="15dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="8dp"
         android:text="Total Points"
         app:layout_constraintEnd_toEndOf="parent"
@@ -133,7 +135,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
         android:onClick="decrementPilot"
         android:text="-"
@@ -146,7 +148,7 @@
         android:id="@+id/pilotSkillAdd"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="80dp"
         android:onClick="incrementPilot"
         android:text="+"

@@ -5,12 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.TravelScreenActivity">
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/toolbar" />
+
     <TextView
         android:id="@+id/playerLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="76dp"
         android:text="Location:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,16 +25,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="NONE"
         app:layout_constraintBottom_toTopOf="@+id/travelSpinner"
         app:layout_constraintEnd_toStartOf="@+id/playerFuel"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toEndOf="@+id/playerLocation"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/travelAmountLabel"
@@ -64,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="156dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="76dp"
         android:text="Fuel:"
         app:layout_constraintStart_toEndOf="@+id/playerLocation"
         app:layout_constraintTop_toTopOf="parent" />
@@ -74,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="-1"
@@ -126,29 +131,25 @@
         android:id="@+id/travelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="336dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="272dp"
         android:onClick="travel"
         android:text="GO TO PLANET"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/planetList" />
+        app:layout_constraintTop_toBottomOf="@+id/travelSpinner" />
 
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="272dp"
+        android:layout_marginEnd="32dp"
         android:onClick="goBack"
         android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toEndOf="@+id/travelButton"
-        app:layout_constraintTop_toBottomOf="@+id/travelSpinner"
-        app:layout_constraintVertical_bias="0.587" />
+        app:layout_constraintTop_toBottomOf="@+id/travelSpinner" />
     <!--app:layout_constraintTop_toBottomOf="@+id/planetSpinner"-->
 
 </android.support.constraint.ConstraintLayout>

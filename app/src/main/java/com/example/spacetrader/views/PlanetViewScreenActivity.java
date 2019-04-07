@@ -6,9 +6,14 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.SolarSystem;
@@ -27,6 +32,10 @@ public class PlanetViewScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet_view_screen);
+
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
         planetName = findViewById(R.id.nameValue);
         planetTechLevel = findViewById(R.id.techLevelValue);
         planetResources = findViewById(R.id.resourceValue);
@@ -39,6 +48,29 @@ public class PlanetViewScreenActivity extends AppCompatActivity {
                 updateValues(repository);
             }
         });
+
+
+        Toast.makeText(this, "A random event has occurred!", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.quit_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.quit_game) {
+            Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+            homeIntent.addCategory( Intent.CATEGORY_HOME );
+            homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(homeIntent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void updateValues(Repository repository){
@@ -47,8 +79,6 @@ public class PlanetViewScreenActivity extends AppCompatActivity {
         planetResources.setText(currentSystem.getResources().toString());
         planetTechLevel.setText(currentSystem.getTechLevel().toString());
     }
-
-
 
     public void goToMarket(View view){
         Intent marketScreen = new Intent(this, BuyGoodsActivity.class);
