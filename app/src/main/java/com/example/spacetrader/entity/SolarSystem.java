@@ -1,9 +1,10 @@
 package com.example.spacetrader.entity;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class SolarSystem {
+public class SolarSystem implements Serializable {
     private Point location;
     private String name;
     private TechLevel techLevel;

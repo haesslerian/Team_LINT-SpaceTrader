@@ -1,5 +1,7 @@
 package com.example.spacetrader.entity;
 
-public enum SkillTypes {
+import java.io.Serializable;
+
+public enum SkillTypes implements Serializable {
     PILOT,FIGHTER,TRADER,ENGINEER;
 }

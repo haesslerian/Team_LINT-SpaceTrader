@@ -8,6 +8,7 @@ import com.example.spacetrader.model.Repository;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class TravelScreenViewModel extends RepositoryLinkedViewModel {
 
@@ -25,7 +26,7 @@ public class TravelScreenViewModel extends RepositoryLinkedViewModel {
         return names;
     }
 
-    public void goToSystem(String name){
+    public void goToSystem(String name, boolean event){
         Repository changes = mRepository.getValue();
         List<SolarSystem> allSystems = changes.getUniverse().getSystemList();
         Point currentLocation = changes.getCurrentLocation();
@@ -35,6 +36,10 @@ public class TravelScreenViewModel extends RepositoryLinkedViewModel {
                 changes.setCurrentLocation(system.getLocation());
                 break;
             }
+        }
+        if(event){
+            int currCredits = changes.getUserPlayer().getCredits();
+            changes.getUserPlayer().setCredits(currCredits + 200);
         }
         mRepository.setValue(changes);
     }

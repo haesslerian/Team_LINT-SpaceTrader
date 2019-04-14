@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.spacetrader.R;
+import com.example.spacetrader.entity.Player;
 
 public class TitleScreenActivity extends AppCompatActivity {
 

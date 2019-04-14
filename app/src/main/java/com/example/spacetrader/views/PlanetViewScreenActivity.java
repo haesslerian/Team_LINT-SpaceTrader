@@ -15,6 +15,8 @@ import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.model.Repository;
 import com.example.spacetrader.viewmodel.PlanetViewScreenViewModel;
 
+import java.io.File;
+
 public class PlanetViewScreenActivity extends AppCompatActivity {
 
     private TextView planetName;
@@ -54,6 +56,16 @@ public class PlanetViewScreenActivity extends AppCompatActivity {
         Intent marketScreen = new Intent(this, BuyGoodsActivity.class);
         startActivity(marketScreen);
     }
+
+    public void saveGame(View view){
+        File file = new File(this.getFilesDir(), "data.bin");
+        mPlanetViewScreenViewModel.saveGame(file);
+    }
+    public void loadGame(View view){
+        File file = new File(this.getFilesDir(), "data.bin");
+        mPlanetViewScreenViewModel.loadGame(file);
+    }
+
 
     public void goToTravel(View view){
         Intent travelScreen = new Intent(this, TravelScreenActivity.class);

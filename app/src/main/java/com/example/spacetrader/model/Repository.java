@@ -5,12 +5,13 @@ import com.example.spacetrader.entity.Point;
 import com.example.spacetrader.entity.TradeGoods;
 import com.example.spacetrader.entity.Universe;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 
 
-public class Repository {
+public class Repository implements Serializable {
 
     private Player userPlayer;
     private Universe universe;

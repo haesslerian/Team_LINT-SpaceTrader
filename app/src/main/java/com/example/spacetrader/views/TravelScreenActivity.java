@@ -1,7 +1,10 @@
 package com.example.spacetrader.views;
 
+import android.app.AlertDialog;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +21,7 @@ import com.example.spacetrader.model.Repository;
 import com.example.spacetrader.viewmodel.TravelScreenViewModel;
 
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class TravelScreenActivity extends AppCompatActivity {
 
@@ -68,9 +72,28 @@ public class TravelScreenActivity extends AppCompatActivity {
         planetSpinner.setAdapter(adapter);
     }
 
-    public void travel(View view){
-        mTravelScreenViewModel.goToSystem((String)planetSpinner.getSelectedItem());
-        goBack(view);
+    public void travel(final View view){
+        if(ThreadLocalRandom.current().nextInt(0, 4) == 0) {
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+            builder1.setMessage("Pocket Change! You find 200 credits lying around your ship.");
+            builder1.setCancelable(true);
+            builder1.setPositiveButton(
+                    "Ok",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                            mTravelScreenViewModel.goToSystem((String)planetSpinner.getSelectedItem(), true);
+                            goBack(view);
+                        }
+                    });
+
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+        }
+        else{
+            mTravelScreenViewModel.goToSystem((String)planetSpinner.getSelectedItem(), false);
+            goBack(view);
+        }
     }
 
     public void goBack(View view){

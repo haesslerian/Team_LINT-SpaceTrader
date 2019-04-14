@@ -4,11 +4,12 @@ import android.util.Log;
 
 import org.apache.commons.math3.random.MersenneTwister;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Universe {
+public class Universe implements Serializable {
     private HashMap<Point, SolarSystem> solarSystemHashMap;
     private MersenneTwister seedGenerator;
 

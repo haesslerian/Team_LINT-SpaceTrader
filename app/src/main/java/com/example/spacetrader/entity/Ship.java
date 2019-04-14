@@ -1,10 +1,11 @@
 package com.example.spacetrader.entity;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class Ship {
+public class Ship implements Serializable {
     private ShipTypes currentType;
     private int cargoSize, weaponSize, gadgetSize, fuelSize, currentFuel;
     private HashMap<TradeGoods, Integer> cargo;

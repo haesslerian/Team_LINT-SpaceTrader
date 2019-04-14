@@ -1,6 +1,8 @@
 package com.example.spacetrader.entity;
 
-public enum SolarSystemNames {
+import java.io.Serializable;
+
+public enum SolarSystemNames implements Serializable {
     CULC ("CULC"),
     SKILES ("Skiles"),
     HOWEY ("Howey"),

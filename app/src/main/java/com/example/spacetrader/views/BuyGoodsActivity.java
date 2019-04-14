@@ -21,7 +21,11 @@ public class BuyGoodsActivity extends AppCompatActivity {
 
     private TextView credits;
     private TextView cargospace;
-    private final int PLANET_AMOUNT_VIEW = 0, PRICE_VIEW = 1, BUYBTN = 2, SELLBTN = 3, SHIP_AMOUNT_VIEW = 4;
+    private final int PLANET_AMOUNT_VIEW = 0;
+    private final int  PRICE_VIEW = 1;
+    private final int BUYBTN = 2;
+    private final int SELLBTN = 3;
+    private final int SHIP_AMOUNT_VIEW = 4;
     private HashMap<TradeGoods, TextView[]> viewArray;
     private BuyGoodsViewModel mBuyGoodsViewModel;
 
@@ -54,7 +58,8 @@ public class BuyGoodsActivity extends AppCompatActivity {
     }
 
     private void setUpButtons(){
-        Iterator<TradeGoods> goodsList = mBuyGoodsViewModel.getRepository().getValue().getTradeGoodsIterator();
+        Repository repo = mBuyGoodsViewModel.getRepository().getValue();
+        Iterator<TradeGoods> goodsList = repo.getTradeGoodsIterator();
         TextView[] tradeGoodUpdatables;
         while(goodsList.hasNext()){
             TradeGoods good = goodsList.next();
