@@ -1,22 +1,25 @@
 package com.example.spacetrader.viewmodel;
 import com.example.spacetrader.model.Repository;
 
+import java.util.Objects;
+
+/**
+ * The type Create character summary view model.
+ */
 public class CreateCharacterSummaryViewModel extends RepositoryLinkedViewModel {
 
-    public void generateUniverse(int seed){
-        Repository changes = mRepository.getValue();
-        changes.generateUniverse(seed);
-        mRepository.setValue(changes);
-    }
-
+    /**
+     * Generate universe.
+     */
     public void generateUniverse(){
         Repository changes = mRepository.getValue();
-        char[] chars = changes.getUserPlayer().getName().toCharArray();
+        char[] chars = Objects.requireNonNull(changes).getCurrentNameCharArray();
         int sum = 0;
-        for(int i = 0; i < chars.length; i++){
-            sum += (int)chars[i];
+        for (char aChar : chars) {
+            sum += (int) aChar;
         }
-        sum = (sum / chars.length) * 34589;
+        int SALT = 34589;
+        sum = (sum / chars.length) * SALT;
         changes.generateUniverse(sum);
         mRepository.setValue(changes);
     }

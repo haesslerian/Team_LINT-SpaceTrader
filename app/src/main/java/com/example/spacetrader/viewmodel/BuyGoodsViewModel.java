@@ -1,36 +1,51 @@
 package com.example.spacetrader.viewmodel;
 
-import com.example.spacetrader.entity.Player;
-import com.example.spacetrader.entity.Ship;
 import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.entity.TradeGoods;
 import com.example.spacetrader.model.Repository;
 
-import java.util.HashMap;
-
+/**
+ * The type Buy goods view model.
+ */
 public class BuyGoodsViewModel extends RepositoryLinkedViewModel {
 
+    /**
+     * Get cargo space string.
+     *
+     * @return the string
+     */
     public String getCargoSpace(){
-        String output = Integer.toString(mRepository.getValue().getUserPlayer().getCurrentShip().getUsedCargoSize());
-        output = output + "/" + Integer.toString(mRepository.getValue().getUserPlayer().getCurrentShip().getCargoSize());
+        Repository repo = getRepositoryValue();
+        int usedCargoSize = repo.getUsedCargoSize();
+        int maxCargoSize = repo.getMaxCargoSize();
+        String output = Integer.toString(usedCargoSize);
+        output = output + "/" + Integer.toString(maxCargoSize);
         return output;
     }
 
+    /**
+     * Make transaction.
+     *
+     * @param tradeGoods the trade goods
+     * @param selling    the selling
+     */
     public void makeTransaction(TradeGoods tradeGoods, boolean selling){
-        Repository changes = mRepository.getValue();
-        Ship currShip = changes.getUserPlayer().getCurrentShip();
-        SolarSystem currentSystem = changes.getUniverse().getSolarSystemHashMap().get(changes.getCurrentLocation());
-        int amount = currentSystem.getTradeGoodAmount().get(tradeGoods);
-        int price = currentSystem.getTradeGoodPrices().get(tradeGoods);
-        if(!selling && currShip.getUsedCargoSize() < currShip.getCargoSize() && amount > 0 && price < changes.getUserPlayer().getCredits()){
-            changes.getUserPlayer().setCredits(changes.getUserPlayer().getCredits() - price);
-            currShip.addCargoAmount(tradeGoods, 1);
-            currentSystem.getTradeGoodAmount().put(tradeGoods, amount - 1);
+        Repository changes = getRepositoryValue();
+        SolarSystem currentSystem = changes.getCurrentSystem();
+        int amount = currentSystem.getSelectedTradeGoodAmount(tradeGoods);
+        int price = currentSystem.getSelectedTradeGoodPrice(tradeGoods);
+        if(!selling &&
+                (changes.getUsedCargoSize() < changes.getMaxCargoSize()) &&
+                (amount > 0) && (price < changes.getCredits())){
+            changes.setCredits(changes.getCredits() - price);
+            changes.addCargoAmount(tradeGoods, 1);
+            currentSystem.setTradeGoodAmount(tradeGoods, amount - 1);
         }
-        else if(selling && currShip.getCargo().get(tradeGoods) > 0){
-                changes.getUserPlayer().setCredits(changes.getUserPlayer().getCredits() + (int)(price - (price * .1)));
-                currShip.addCargoAmount(tradeGoods, -1);
-                currentSystem.getTradeGoodAmount().put(tradeGoods, amount + 1);
+        else if(selling && (changes.getSelectedShipCargo(tradeGoods) > 0)){
+            double TRADE_MODIFIER = .1;
+            changes.setCredits(changes.getCredits() + (int)(price - (price * TRADE_MODIFIER)));
+                changes.addCargoAmount(tradeGoods, -1);
+                currentSystem.setTradeGoodAmount(tradeGoods, amount + 1);
             }
         mRepository.setValue(changes);
     }

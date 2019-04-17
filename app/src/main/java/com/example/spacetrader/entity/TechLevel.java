@@ -1,8 +1,40 @@
 package com.example.spacetrader.entity;
 
+/**
+ * The enum Tech level.
+ */
 public enum TechLevel {
-    PREAGRICULTURE("Pre-Agriculture", 0), AGRICULTURE("Agriculture", 1), MEDIEVAL("Medieval", 2), RENAISSANCE("Renaissance", 3),
-    EARLYINDUSTRIAL("Early-Industrial", 4), INDUSTRIAL("Industrial", 5), POSTINDUSTRIAL("Post-Industrial", 6),
+    /**
+     * Preagriculture tech level.
+     */
+    PREAGRICULTURE("Pre-Agriculture", 0),
+    /**
+     * Agriculture tech level.
+     */
+    AGRICULTURE("Agriculture", 1),
+    /**
+     * Medieval tech level.
+     */
+    MEDIEVAL("Medieval", 2),
+    /**
+     * Renaissance tech level.
+     */
+    RENAISSANCE("Renaissance", 3),
+    /**
+     * Earlyindustrial tech level.
+     */
+    EARLYINDUSTRIAL("Early-Industrial", 4),
+    /**
+     * Industrial tech level.
+     */
+    INDUSTRIAL("Industrial", 5),
+    /**
+     * Postindustrial tech level.
+     */
+    POSTINDUSTRIAL("Post-Industrial", 6),
+    /**
+     * Hitech tech level.
+     */
     HITECH("Hi-Tech", 7);
 
     private final String name;
@@ -17,6 +49,11 @@ public enum TechLevel {
         return name;
     }
 
+    /**
+     * Gets level.
+     *
+     * @return the level
+     */
     public int getLevel() {
         return level;
     }

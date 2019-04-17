@@ -1,7 +1,29 @@
 package com.example.spacetrader.entity;
 
+/**
+ * The enum Difficulty.
+ */
 public enum Difficulty {
-    BEGINNER ("Beginner"), EASY ("Easy"), NORMAL ("Normal"), HARD ("Hard"), IMPOSSIBLE ("Impossible");
+    /**
+     * Beginner difficulty.
+     */
+    BEGINNER ("Beginner"),
+    /**
+     * Easy difficulty.
+     */
+    EASY ("Easy"),
+    /**
+     * Normal difficulty.
+     */
+    NORMAL ("Normal"),
+    /**
+     * Hard difficulty.
+     */
+    HARD ("Hard"),
+    /**
+     * Impossible difficulty.
+     */
+    IMPOSSIBLE ("Impossible");
     private final String diffNames;
 
     Difficulty(String diffNames){
