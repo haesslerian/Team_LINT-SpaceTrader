@@ -1,8 +1,6 @@
 package com.example.spacetrader.model;
 
 import android.arch.lifecycle.MutableLiveData;
-import android.content.Context;
-import android.os.Environment;
 import android.util.Log;
 
 import java.io.File;
@@ -10,21 +8,28 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+
 /**
  * Container for the TOTAL STATE of the application.
  * Singleton model (Only one instance of Model in total application)
  * Contains all Interactors for application
  */
-
-public class Model implements Serializable {
+public final class Model implements Serializable {
     private Repository gameRepo;
-    private final String SAVE_FILE_NAME = "data.bin";
+    // --Commented out by Inspection (4/14/19, 7:43 PM)
+    // :private final String SAVE_FILE_NAME = "data.bin";
     //Singleton instance
     private static Model instance;
 
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static Model getInstance() {
         if(instance == null){
             instance = new Model();
@@ -32,8 +37,12 @@ public class Model implements Serializable {
         return instance;
     }
 
-    public boolean saveRepo(File file){
-        boolean success = true;
+    /**
+     * Save repo.
+     *
+     * @param file the file
+     */
+    public void saveRepo(File file){
         try {
             /*
                For binary, we use Serialization, so everything we write has to implement
@@ -47,7 +56,7 @@ public class Model implements Serializable {
              */
 
 
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+            ObjectOutput out = new ObjectOutputStream(new FileOutputStream(file));
             // We basically can save our entire data model with one write, since this will follow
             // all the links and pointers to save everything.  Just save the top level object.
             out.writeObject(gameRepo);
@@ -55,13 +64,16 @@ public class Model implements Serializable {
 
         } catch (IOException e) {
             Log.e("UserManagerFacade", "Error writing an entry from binary file",e);
-            success = false;
         }
-        return success;
     }
 
+    /**
+     * Load repo repository.
+     *
+     * @param file the file
+     * @return the repository
+     */
     public Repository loadRepo(File file){
-        boolean success = true;
         try {
             /*
               To read, we must use the ObjectInputStream since we want to read our model in with
@@ -74,14 +86,17 @@ public class Model implements Serializable {
             return savedGame;
         } catch (IOException e) {
             Log.e("UserManagementFacade", "Error reading an entry from binary file",e);
-            success = false;
         } catch (ClassNotFoundException e) {
             Log.e("UserManagementFacade", "Error casting a class from the binary file",e);
-            success = false;
         }
         return this.gameRepo;
     }
 
+    /**
+     * Set game repo.
+     *
+     * @param repo the repo
+     */
     public void setGameRepo(Repository repo){
         this.gameRepo = repo;
     }
@@ -91,6 +106,11 @@ public class Model implements Serializable {
         this.gameRepo = new Repository();
     }
 
+    /**
+     * Get repository mutable live data.
+     *
+     * @return the mutable live data
+     */
     public MutableLiveData<Repository> getRepository(){
         MutableLiveData<Repository> data = new MutableLiveData<>();
         data.setValue(gameRepo);

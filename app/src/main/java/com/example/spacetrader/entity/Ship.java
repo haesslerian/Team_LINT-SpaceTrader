@@ -4,87 +4,79 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
 
+/**
+ * The type Ship.
+ */
 public class Ship implements Serializable {
-    private ShipTypes currentType;
-    private int cargoSize, weaponSize, gadgetSize, fuelSize, currentFuel;
-    private HashMap<TradeGoods, Integer> cargo;
+    private final ShipTypes currentType;
+    private int cargoSize;
+    private int fuelSize;
+    private int currentFuel;
+    private final HashMap<TradeGoods, Integer> cargo;
 
+    /**
+     * Instantiates a new Ship.
+     *
+     * @param type the type
+     */
     public Ship(ShipTypes type){
         currentType = type;
         cargo = new HashMap<>();
         TradeGoods[] tradeGoods = TradeGoods.values();
-        for(int i = 0; i < tradeGoods.length; i++){
-            cargo.put(tradeGoods[i], 0);
+        for (TradeGoods tradeGood : tradeGoods) {
+            cargo.put(tradeGood, 0);
         }
         switch (type){
             case FLEA: {
                 cargoSize = 10;
-                weaponSize = 0;
-                gadgetSize = 0;
                 fuelSize = 20;
                 break;
             }
             case GNAT: {
                 cargoSize = 15;
-                weaponSize = 1;
-                gadgetSize = 1;
                 fuelSize = 14;
                 break;
             }
             case FIREFLY: {
                 cargoSize = 20;
-                weaponSize = 1;
-                gadgetSize = 1;
                 fuelSize = 17;
                 break;
             }
             case MOSQUITO: {
                 cargoSize = 15;
-                weaponSize = 2;
-                gadgetSize = 1;
                 fuelSize = 13;
                 break;
             }
             case BUMBLEBEE: {
                 cargoSize = 20;
-                weaponSize = 2;
-                gadgetSize = 2;
                 fuelSize = 15;
                 break;
             }
             case BEETLE: {
                 cargoSize = 50;
-                weaponSize = 0;
-                gadgetSize = 1;
                 fuelSize = 14;
                 break;
             }
             case HORNET: {
                 cargoSize = 20;
-                weaponSize = 3;
-                gadgetSize = 1;
                 fuelSize = 16;
                 break;
             }
             case GRASSHOPPER: {
                 cargoSize = 30;
-                weaponSize = 2;
-                gadgetSize = 3;
                 fuelSize = 15;
                 break;
             }
             case TERMITE: {
                 cargoSize = 60;
-                weaponSize = 1;
-                gadgetSize = 2;
                 fuelSize = 13;
                 break;
             }
             case WASP: {
                 cargoSize = 35;
-                weaponSize = 3;
-                gadgetSize = 2;
                 fuelSize = 14;
                 break;
             }
@@ -92,58 +84,95 @@ public class Ship implements Serializable {
         currentFuel = fuelSize;
     }
 
-    public ShipTypes getCurrentType() {
-        return currentType;
-    }
+// --Commented out by Inspection START (4/14/19, 10:50 PM):
+//    /**
+//     * Gets current type.
+//     *
+//     * @return the current type
+//     */
+//    public ShipTypes getCurrentType() {
+//        return currentType;
+//    }
+// --Commented out by Inspection STOP (4/14/19, 10:50 PM)
 
+    /**
+     * Gets cargo size.
+     *
+     * @return the cargo size
+     */
     public int getCargoSize() {
         return cargoSize;
     }
 
-    public int getWeaponSize() {
-        return weaponSize;
-    }
 
-    public int getGadgetSize() {
-        return gadgetSize;
-    }
-
+    /**
+     * Gets fuel size.
+     *
+     * @return the fuel size
+     */
     public int getFuelSize() {
         return fuelSize;
     }
 
+    /**
+     * Gets current fuel.
+     *
+     * @return the current fuel
+     */
     public int getCurrentFuel() {
         return currentFuel;
     }
 
+    /**
+     * Sets current fuel.
+     *
+     * @param currentFuel the current fuel
+     */
     public void setCurrentFuel(int currentFuel) {
         this.currentFuel = currentFuel;
     }
 
-    public HashMap<TradeGoods, Integer> getCargo() {
-        return cargo;
+// --Commented out by Inspection START (4/14/19, 10:50 PM):
+//    /**
+//     * Gets cargo.
+//     *
+//     * @return the cargo
+//     */
+//    public Map<TradeGoods, Integer> getCargo() {
+//        return Collections.unmodifiableMap(cargo);
+//    }
+// --Commented out by Inspection STOP (4/14/19, 10:50 PM)
+
+    private int getTradeGoodAmount(TradeGoods type){
+         return Objects.requireNonNull(cargo.get(type));
     }
 
-    public int getTradeGoodAmount(TradeGoods type){
-        try {
-            return cargo.get(type);
-        } catch (NullPointerException ex){
-            return 0;
+    /**
+     * Add cargo amount.
+     * Excepts negative numbers to subtract value
+     *
+     * @param type   the type
+     * @param amount the amount
+     */
+//Returns new total for good
+    public void addCargoAmount(TradeGoods type, int amount){
+        if(type == null){
+           throw new IllegalArgumentException("Type can not be null");
         }
-    }
-
-    //Returns new total for good
-    public int addCargoAmount(TradeGoods type, int amount){
         int currAmount = getTradeGoodAmount(type);
-        if((getUsedCargoSize() + amount) > cargoSize){
-            return -1;
+        if(((getUsedCargoSize() + amount) > cargoSize) || ((getUsedCargoSize() + amount) < 0)){
+            return;
         }
         cargo.put(type, currAmount + amount);
-        return currAmount + amount;
     }
 
+    /**
+     * Get used cargo size int.
+     *
+     * @return the int
+     */
     public int getUsedCargoSize(){
-        LinkedList cargoList = new LinkedList<>(cargo.values());
+        List cargoList = new LinkedList<>(cargo.values());
         Iterator list = cargoList.listIterator();
         int total = 0;
         Integer curr;
@@ -152,5 +181,24 @@ public class Ship implements Serializable {
             total += curr;
         }
         return total;
+    }
+
+    /**
+     * Get selected cargo int.
+     *
+     * @param good the good
+     * @return the int
+     */
+    public int getSelectedCargo(TradeGoods good){
+        return Objects.requireNonNull(cargo.get(good));
+    }
+
+    /**
+     * Get current ship type string.
+     *
+     * @return the string
+     */
+    public String getCurrentShipType(){
+        return currentType.toString();
     }
 }

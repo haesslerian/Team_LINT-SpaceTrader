@@ -13,6 +13,11 @@ import com.example.spacetrader.R;
 import com.example.spacetrader.model.Repository;
 import com.example.spacetrader.viewmodel.CreateCharacterSummaryViewModel;
 
+import java.util.Objects;
+
+/**
+ * The type Create character summary activity.
+ */
 public class CreateCharacterSummaryActivity extends AppCompatActivity {
 
     private TextView playerName;
@@ -37,35 +42,45 @@ public class CreateCharacterSummaryActivity extends AppCompatActivity {
         engineerSkill = findViewById(R.id.engineerDisplay);
         credits = findViewById(R.id.creditsDisplay);
         shipType = findViewById(R.id.shipDisplay);
-        mCreateCharacterSummaryViewModel = ViewModelProviders.of(this).get(CreateCharacterSummaryViewModel.class);
+        mCreateCharacterSummaryViewModel = ViewModelProviders.of(
+                this).get(CreateCharacterSummaryViewModel.class);
         mCreateCharacterSummaryViewModel.init();
         mCreateCharacterSummaryViewModel.getRepository().observe(this, new Observer<Repository>() {
             @Override
             public void onChanged(@Nullable Repository repository) {
-                updateValues(repository);
+                updateValues(Objects.requireNonNull(repository));
             }
         });
     }
 
-    public void updateValues(Repository newValues){
-        playerName.setText(newValues.getUserPlayer().getName());
-        difficulty.setText(newValues.getUserPlayer().getDifficulty().toString());
-        pilotSkill.setText(Integer.toString(newValues.getUserPlayer().getSkillPilot()));
-        fighterSkill.setText(Integer.toString(newValues.getUserPlayer().getSkillFighter()));
-        traderSkill.setText(Integer.toString(newValues.getUserPlayer().getSkillTrader()));
-        engineerSkill.setText(Integer.toString(newValues.getUserPlayer().getSkillEngineer()));
-        credits.setText(Integer.toString(newValues.getUserPlayer().getCredits()));
-        shipType.setText(newValues.getUserPlayer().getCurrentShip().getCurrentType().toString());
+    private void updateValues(Repository newValues) {
+        playerName.setText(newValues.getName());
+        difficulty.setText(newValues.getDifficultyString());
+        pilotSkill.setText(Objects.requireNonNull(Integer.toString(newValues.getSkillPilot())));
+        fighterSkill.setText(Objects.requireNonNull(Integer.toString(newValues.getSkillFighter())));
+        traderSkill.setText(Objects.requireNonNull(Integer.toString(newValues.getSkillTrader())));
+        engineerSkill.setText(
+                Objects.requireNonNull(
+                        Integer.toString(newValues.getSkillEngineer())));
+        credits.setText(Objects.requireNonNull(Integer.toString(newValues.getCredits())));
+        shipType.setText(newValues.getCurrentShipType());
     }
 
-    public void exitGame(View view){
-        Intent homeIntent = new Intent(Intent.ACTION_MAIN);
-        homeIntent.addCategory( Intent.CATEGORY_HOME );
-        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(homeIntent);
-    }
+// --Commented out by Inspection START (4/14/19, 7:43 PM):
+//    public void exitGame(){
+//        Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+//        homeIntent.addCategory( Intent.CATEGORY_HOME );
+//        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(homeIntent);
+//    }
+// --Commented out by Inspection STOP (4/14/19, 7:43 PM)
 
-    public void generateUniverse(View view){
+    /**
+     * Generate universe.
+     *
+     * @param view the view
+     */
+    public void generateUniverse(View view) {
         mCreateCharacterSummaryViewModel.generateUniverse();
         Intent nextScreen = new Intent(this, PlanetViewScreenActivity.class);
         startActivity(nextScreen);

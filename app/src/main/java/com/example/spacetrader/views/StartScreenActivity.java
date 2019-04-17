@@ -7,6 +7,9 @@ import android.view.View;
 
 import com.example.spacetrader.R;
 
+/**
+ * The type Start screen activity.
+ */
 public class StartScreenActivity extends AppCompatActivity {
 
     @Override
@@ -15,6 +18,11 @@ public class StartScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start_screen);
     }
 
+    /**
+     * Go to create character.
+     *
+     * @param view the view
+     */
     public void goToCreateCharacter(View view){
         Intent intent = new Intent(this, CreateCharacterBasicInfoActivity.class);
         startActivity(intent);
