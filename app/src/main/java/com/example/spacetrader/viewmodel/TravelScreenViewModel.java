@@ -9,8 +9,18 @@ import com.example.spacetrader.model.Repository;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @author haesslerian
+ * @version 1.0
+ *
+ * Allows the user to travel to a different solar system/planet
+ */
 public class TravelScreenViewModel extends RepositoryLinkedViewModel {
 
+    /**
+     * Getter method for system the user can travel to
+     * @return a list of solar systems that is within travel distance for the user
+     */
     public List<String> getNearbySystems(){
         Repository current = mRepository.getValue();
         List<SolarSystem> allSystems = current.getUniverse().getSystemList();
@@ -25,6 +35,11 @@ public class TravelScreenViewModel extends RepositoryLinkedViewModel {
         return names;
     }
 
+    /**
+     * Updates the repository with the solar system the user is travelling to
+     *
+     * @param name the name of the solar system to travel to
+     */
     public void goToSystem(String name){
         Repository changes = mRepository.getValue();
         List<SolarSystem> allSystems = changes.getUniverse().getSystemList();
@@ -39,6 +54,12 @@ public class TravelScreenViewModel extends RepositoryLinkedViewModel {
         mRepository.setValue(changes);
     }
 
+    /**
+     * Determines the distance to the next solar system
+     *
+     * @param name the name of the solar system to find the distance of
+     * @return the distance to the solar system
+     */
     public int calculateDistance(String name){
         Repository changes = mRepository.getValue();
         List<SolarSystem> allSystems = changes.getUniverse().getSystemList();
@@ -50,6 +71,9 @@ public class TravelScreenViewModel extends RepositoryLinkedViewModel {
         return 0;
     }
 
+    /**
+     * Reduces the the users credits and increases the amount of fuel
+     */
     public void buyFuel(){
         Repository changes = mRepository.getValue();
         Player current = changes.getUserPlayer();

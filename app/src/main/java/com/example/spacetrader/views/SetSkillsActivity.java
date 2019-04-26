@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.spacetrader.R;
-import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.entity.SkillTypes;
 import com.example.spacetrader.model.Repository;
 import com.example.spacetrader.viewmodel.SetSkillsViewModel;

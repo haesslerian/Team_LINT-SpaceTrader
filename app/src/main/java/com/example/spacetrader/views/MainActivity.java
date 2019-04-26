@@ -6,6 +6,12 @@ import android.os.Bundle;
 
 import com.example.spacetrader.R;
 
+/**
+ * @author haesslerian
+ * @version 1.0
+ *
+ * Starts up the game and goes to the title screen
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

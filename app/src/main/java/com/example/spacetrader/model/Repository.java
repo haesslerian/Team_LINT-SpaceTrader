@@ -15,7 +15,7 @@ public class Repository {
     private Player userPlayer;
     private Universe universe;
     private Point currentLocation;
-    private ArrayList<TradeGoods> tradeGoodsList;
+    private final ArrayList<TradeGoods> tradeGoodsList;
 
     public Repository(){
         userPlayer = new Player();

@@ -1,5 +1,8 @@
 package com.example.spacetrader.entity;
 
+/**
+ * Enumeration for the ship types the user can select
+ */
 public enum ShipTypes {
     GNAT ("Gnat"),
     FLEA ("Flea"),

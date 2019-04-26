@@ -20,6 +20,12 @@ import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.model.Repository;
 import com.example.spacetrader.viewmodel.PlanetViewScreenViewModel;
 
+/**
+ * @author haesslerian
+ * @version 1.0
+ *
+ * Displays the planet the user is currently on
+ */
 public class PlanetViewScreenActivity extends AppCompatActivity {
 
     private TextView planetName;
@@ -50,7 +56,8 @@ public class PlanetViewScreenActivity extends AppCompatActivity {
         });
 
 
-        Toast.makeText(this, "A random event has occurred!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "A random event has occurred in the market!",
+            Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -80,11 +87,21 @@ public class PlanetViewScreenActivity extends AppCompatActivity {
         planetTechLevel.setText(currentSystem.getTechLevel().toString());
     }
 
+    /**
+     * Allows the user to go to the market for the planet
+     *
+     * @param view the screen to display
+     */
     public void goToMarket(View view){
         Intent marketScreen = new Intent(this, BuyGoodsActivity.class);
         startActivity(marketScreen);
     }
 
+    /**
+     * Allows the user to go to the travel screen
+     *
+     * @param view the screen to display
+     */
     public void goToTravel(View view){
         Intent travelScreen = new Intent(this, TravelScreenActivity.class);
         startActivity(travelScreen);

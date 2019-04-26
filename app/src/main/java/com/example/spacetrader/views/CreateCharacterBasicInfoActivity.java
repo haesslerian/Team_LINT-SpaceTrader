@@ -1,13 +1,10 @@
 package com.example.spacetrader.views;
 
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,11 +17,15 @@ import android.widget.Spinner;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Difficulty;
 import com.example.spacetrader.entity.Player;
-import com.example.spacetrader.model.Repository;
 import com.example.spacetrader.viewmodel.CreateCharacterBasicInfoViewModel;
 
-import java.util.Set;
-
+/**
+ * @author tavc
+ * @version 1.0
+ *
+ * Creates a place for the user to enter a name and select the difficult he/she would like to play
+ * the game at
+ */
 public class CreateCharacterBasicInfoActivity extends AppCompatActivity {
 
     private EditText nameField;
@@ -74,6 +75,12 @@ public class CreateCharacterBasicInfoActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Gets the name and difficulty selected by the user and sets to playerData then goes to
+     * SetSkillsActivity
+     *
+     * @param view the screen to display when button is pressed
+     */
     public void onNextPressed(View view) {
         mCreateCharacterBasicInfoViewModel.setPlayerData(nameField.getText().toString(), (Difficulty)difficultySpinner.getSelectedItem());
         Intent intent = new Intent(this, SetSkillsActivity.class);

@@ -5,9 +5,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 public class Ship {
-    private ShipTypes currentType;
+    private final ShipTypes currentType;
     private int cargoSize, weaponSize, gadgetSize, fuelSize, currentFuel;
-    private HashMap<TradeGoods, Integer> cargo;
+    private final HashMap<TradeGoods, Integer> cargo;
 
     public Ship(ShipTypes type){
         currentType = type;
@@ -98,6 +98,8 @@ public class Ship {
     public int getCargoSize() {
         return cargoSize;
     }
+
+    public void setCargoSize(int cargoSize) { this.cargoSize = cargoSize; }
 
     public int getWeaponSize() {
         return weaponSize;

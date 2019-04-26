@@ -15,7 +15,7 @@ public class RepositoryLinkedViewModel extends ViewModel {
         if(mRepository != null){
             return;
         }
-        Model = Model.getInstance();
+        Model = com.example.spacetrader.model.Model.getInstance();
         mRepository = Model.getRepository();
     }
 

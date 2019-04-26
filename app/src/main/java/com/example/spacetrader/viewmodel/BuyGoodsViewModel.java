@@ -1,21 +1,36 @@
 package com.example.spacetrader.viewmodel;
 
-import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.entity.Ship;
 import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.entity.TradeGoods;
 import com.example.spacetrader.model.Repository;
 
-import java.util.HashMap;
-
+/**
+ * @author haesslerian
+ * @version 1.0
+ *
+ * Updates changes made in the marketplace to cargo and credits
+ */
 public class BuyGoodsViewModel extends RepositoryLinkedViewModel {
 
+    /**
+     * Gets the size of the users cargo and the space that has been used so far
+     *
+     * @return a string that states the space used out of the total space
+     */
     public String getCargoSpace(){
         String output = Integer.toString(mRepository.getValue().getUserPlayer().getCurrentShip().getUsedCargoSize());
         output = output + "/" + Integer.toString(mRepository.getValue().getUserPlayer().getCurrentShip().getCargoSize());
         return output;
     }
 
+    /**
+     * Changes the amount of an item owned by the user and the number of credits owned by the user
+     * as he/she buys and sells in the market place
+     *
+     * @param tradeGoods the TradeGood that is being modified
+     * @param selling boolean for whether or not the good is being sold or not
+     */
     public void makeTransaction(TradeGoods tradeGoods, boolean selling){
         Repository changes = mRepository.getValue();
         Ship currShip = changes.getUserPlayer().getCurrentShip();

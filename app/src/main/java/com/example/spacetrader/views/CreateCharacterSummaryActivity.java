@@ -17,6 +17,13 @@ import com.example.spacetrader.R;
 import com.example.spacetrader.model.Repository;
 import com.example.spacetrader.viewmodel.CreateCharacterSummaryViewModel;
 
+/**
+ * @author haesslerian
+ * @version 1.0
+ *
+ * Creates the page for users to choose the number of skill points they want to allocate to each
+ * skill
+ */
 public class CreateCharacterSummaryActivity extends AppCompatActivity {
 
     private TextView playerName;
@@ -75,6 +82,11 @@ public class CreateCharacterSummaryActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Sets the variables with information obtained from the user
+     *
+     * @param newValues the repository holding the user's information
+     */
     public void updateValues(Repository newValues){
         playerName.setText(newValues.getUserPlayer().getName());
         difficulty.setText(newValues.getUserPlayer().getDifficulty().toString());
@@ -86,6 +98,12 @@ public class CreateCharacterSummaryActivity extends AppCompatActivity {
         shipType.setText(newValues.getUserPlayer().getCurrentShip().getCurrentType().toString());
     }
 
+    /**
+     * Calls for the universe to be created when user presses the generate universe button and then
+     * goes to planet activity
+     *
+     * @param view the screen to display when the universe is generated
+     */
     public void generateUniverse(View view){
         mCreateCharacterSummaryViewModel.generateUniverse();
         Intent nextScreen = new Intent(this, PlanetViewScreenActivity.class);

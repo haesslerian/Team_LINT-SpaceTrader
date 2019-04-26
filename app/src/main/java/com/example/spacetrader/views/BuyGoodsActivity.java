@@ -22,6 +22,12 @@ import com.example.spacetrader.viewmodel.BuyGoodsViewModel;
 import java.util.HashMap;
 import java.util.Iterator;
 
+/**
+ * @author haesslerian
+ * @version 1.0
+ *
+ * Sets up the market place screen so that the user can buy and sell trade goods
+ */
 public class BuyGoodsActivity extends AppCompatActivity {
 
     private TextView credits;

@@ -17,12 +17,17 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.spacetrader.R;
-import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.model.Repository;
 import com.example.spacetrader.viewmodel.TravelScreenViewModel;
 
 import java.util.List;
 
+/**
+ * @author haesslerian
+ * @version 1.0
+ *
+ * Displays the screen for the user to select a solar system to travel to
+ */
 public class TravelScreenActivity extends AppCompatActivity {
 
     private Spinner planetSpinner;
@@ -95,6 +100,10 @@ public class TravelScreenActivity extends AppCompatActivity {
         planetSpinner.setAdapter(adapter);
     }
 
+    /**
+     *
+     * @param view
+     */
     public void travel(View view){
         mTravelScreenViewModel.goToSystem((String)planetSpinner.getSelectedItem());
         goBack(view);
