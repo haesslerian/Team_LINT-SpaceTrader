@@ -25,6 +25,7 @@ public class PlanetViewScreenActivity extends AppCompatActivity {
     private TextView planetTechLevel;
     private TextView planetResources;
     private PlanetViewScreenViewModel mPlanetViewScreenViewModel;
+    private View currentView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,29 @@ public class PlanetViewScreenActivity extends AppCompatActivity {
         planetName.setText(repository.getCurrentSystemName());
         planetResources.setText(repository.getCurrentSystemResources());
         planetTechLevel.setText(repository.getCurrentSystemTechLevel());
+        currentView = this.getWindow().getDecorView();
+        switch (repository.getCurrentSystemName()) {
+            case "CULC":
+                currentView.setBackgroundResource(R.drawable.planet1); break;
+            case "Skiles":
+                currentView.setBackgroundResource(R.drawable.planet2); break;
+            case "Howey":
+                currentView.setBackgroundResource(R.drawable.planet3); break;
+            case "CRC":
+                currentView.setBackgroundResource(R.drawable.planet4); break;
+            case "North Ave":
+                currentView.setBackgroundResource(R.drawable.planet5); break;
+            case "Couch":
+                currentView.setBackgroundResource(R.drawable.planet6); break;
+            case "Woodruff":
+                currentView.setBackgroundResource(R.drawable.planet7); break;
+            case "Brittain":
+                currentView.setBackgroundResource(R.drawable.planet8); break;
+            case "Twisted Taco":
+                currentView.setBackgroundResource(R.drawable.planet9); break;
+            case "KLAUS":
+                currentView.setBackgroundResource(R.drawable.planet10); break;
+            }
     }
 
 
